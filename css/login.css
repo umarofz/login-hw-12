@@ -1,0 +1,97 @@
+.container {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.wrapper-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left {
+    background-image: url("./../images/login-bg.png");
+    background-repeat: no-repeat;
+    width: 1000px;
+    height: 1000px;
+    margin-left: -50px;
+}
+.wrapper {
+    text-align: center;
+}
+.wrapper__heading {
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 140%;
+    margin-bottom: 13px;
+    color: #344767;
+}
+.wrapper__text {
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #7B809A;
+    margin-bottom: 58px;
+}
+.form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.input__email {
+    background: #FFFFFF;
+    border: 1px solid #C7CCD0;
+    border-radius: 8px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 16px;
+    margin-bottom: 14px;
+    width: 361px;
+}
+.input__password {
+    background: #FFFFFF;
+    border: 1px solid #C7CCD0;
+    border-radius: 8px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 16px;
+    margin-bottom: 73px;
+    width: 361px;
+}
+.btn-submit {
+    width: 380px;
+    border: none;
+    outline: none;
+    background: linear-gradient(180deg, #E93B77 0%, #DA1F63 100%);
+    border-radius: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 140%;
+    padding-top: 11px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 36px;
+}
+.link {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    margin: 0;
+    color: #7B809A;
+}
+.link-span {
+    text-decoration: none;
+    color: #DA1F63;
+}

@@ -8,35 +8,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./bootstrap-5.2.0-dist/css/bootstrap.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
         <div id="wrapper">
-            <h2 class="name">John Doe</h2>
+            <h2 class="name" id="username">John Doe</h2>
             <button class="logout__btn">Logout</button>
         </div>
         <div class="wrapper-container">
             <div class="posts__wrappper">
-                <h3 class="posts__heading">Posts</h3>
+                <h3 class="posts__heading">Posts: <span class="result__span">0</span></h3>
                 <ul class="posts__list">
-                    <li class="post__item">
-                        <div class="post__item-left">
-                            <h3 class="post__item-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit</h3>
-                            <p class="post__item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quod nulla ducimus nihil vero dolore suscipit odio fuga corrupti doloremque, eveniet necessitatibus possimus dolorum laboriosam eos, eum tempora minima quasi! </p>
-                        </div>
-                        <div class="post__item-right">
-                            <button class="post__item-delete">DELETE</button>
-                            <button class="post__item-edit">EDIT</button>
-                        </div>
-                        
-                        <button class="post__item-save">SAVE</button>
-                    </li>
+                    
                 </ul>
             </div>
             <div class="posts__wrappper">
                 <h3 class="posts__heading">Posts</h3>
-                <ul class="posts__list">
+                <ul class="save__list">
                     <li class="post__item">
                         <div class="post__item-left">
                             <h3 class="post__item-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit</h3>
@@ -50,5 +40,43 @@
             </div>
         </div>
     </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="form" action="">
+                        <input class="input__title" type="text" placeholder="Title">
+                        <input class="input__body" type="text" placeholder="Body">
+                        
+                        <button class="btn-submit" id="btn__id" data-bs-dismiss="modal">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <template id="post__temp">
+        <li class="post__item">
+            <div class="post__item-left">
+                <h3 class="post__item-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit</h3>
+                <p class="post__item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quod nulla ducimus nihil vero dolore suscipit odio fuga corrupti doloremque, eveniet necessitatibus possimus dolorum laboriosam eos, eum tempora minima quasi! </p>
+            </div>
+            <div class="post__item-right">
+                <button class="post__item-delete">DELETE</button>
+                <button class="post__item-edit modal-dialog-centered" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</button>
+            </div>
+            
+            <button class="post__item-save">SAVE</button>
+        </li>
+    </template>
+    
+    <script src="./js/main.js"></script>
+    <script src="./bootstrap-5.2.0-dist/js/bootstrap.js"></script>
 </body>
 </html>

@@ -64,6 +64,14 @@
     flex-direction: column;
     gap: 17px;
 }
+.save__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
 .post__item {
     width: 704px;
     background: #F8F9FA;
@@ -91,7 +99,7 @@
     align-items: center;
     position: absolute;
     left: 74%;
-    top: 33%;
+    top: 23%;
 }
 .post__item-delete {
     border: none;
@@ -154,9 +162,53 @@
 }
 .post__item-save::before {
     content: url("./../images/save-img.svg");
-    margin-right:11px;
+    margin-right: 11px;
 }
 
 .btn-margin {
     margin-left: 80px;
+}
+
+/* ______________________ */
+
+.form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.input__title {
+    background: #FFFFFF;
+    border: 1px solid #C7CCD0;
+    border-radius: 8px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 16px;
+    margin-bottom: 14px;
+    width: 361px;
+}
+.input__body {
+    background: #FFFFFF;
+    border: 1px solid #C7CCD0;
+    border-radius: 8px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 16px;
+    margin-bottom: 20px;
+    width: 361px;
+}
+.btn-submit {
+    width: 360px;
+    border: none;
+    outline: none;
+    background: linear-gradient(180deg, #E93B77 0%, #DA1F63 100%);
+    border-radius: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 140%;
+    padding-top: 11px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: #FFFFFF;
 }

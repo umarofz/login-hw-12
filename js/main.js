@@ -1,5 +1,6 @@
 let elPostTemp = document.querySelector("#post__temp").content
 let elPostsWrapper = document.querySelector(".posts__list");
+let elSavedPosts = document.querySelector(".save__list");
 let btnLogout = document.querySelector('.logout__btn');
 let resultCounter = document.querySelector(".result__span")
 let elForm = document.querySelector(".form")
@@ -19,15 +20,15 @@ headers: {
 .then(res => res.json())
 .then(data => {
     if (!data.error) {
-        renderPosts(data.posts)
+        renderPosts(data.posts, elPostsWrapper)
         resultCounter.innerHTML = data.totalResults
     } else {
         window.location.href = "/login.html"
     }
 })
 
-function renderPosts(array) {
-    elPostsWrapper.innerHTML = null;
+function renderPosts(array, wrapper) {
+    wrapper.innerHTML = null;
     let fragment = document.createDocumentFragment();
     
     for (const item of array) {
@@ -42,7 +43,7 @@ function renderPosts(array) {
         fragment.appendChild(postItem)
     }
     
-    elPostsWrapper.appendChild(fragment)
+    wrapper.appendChild(fragment)
 }
 
 btnLogout.addEventListener("click", function() {
@@ -122,9 +123,44 @@ elPostsWrapper.addEventListener("click", function(evt) {
 })
 
 elPostsWrapper.addEventListener("click", function(evt) {
-    
+    let savedId = evt.target.dataset.saveId;
+    let currenClosest = evt.target.closest(".post__item")
+    if (savedId) {
+        if (savedPosts.length == 0) {
+            fetch(`https://fast-ravine-16741.herokuapp.com/api/posts/${savedId}`, 
+            {
+                method: 'GET',
+                headers: {
+                    "Content-Type":"application/json",
+                    "Authorization": localToken
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.error) {
+                    savedPosts.push(data)
+                    renderPosts(savedPosts, elSavedPosts)
+                }
+            })
+        } else if (!savedPosts.find(item => item._id == savedId)) {
+            fetch(`https://fast-ravine-16741.herokuapp.com/api/posts/${savedId}`, 
+            {
+                method: 'GET',
+                headers: {
+                    "Content-Type":"application/json",
+                    "Authorization": localToken
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.error) {
+                    savedPosts.push(data)
+                    renderPosts(savedPosts, elSavedPosts)
+                }
+            })
+        }
+    }
 })
-
 
 fetch("https://fast-ravine-16741.herokuapp.com/api/users/me" , {
 method: "GET",
@@ -141,4 +177,3 @@ headers: {
         document.querySelector("#username").textContent = data.name
     }
 })
-
